@@ -165,8 +165,22 @@ email_message.attach(MIMEText(html, "html"))
 # Convert it as a string
 email_string = email_message.as_string()
 
-# Connect to the Gmail SMTP server and Send Email
-context = ssl.create_default_context()
-with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
-    server.login(email_from, password)
-    server.sendmail(email_from, email_to, email_string)
+# Connect to the Gmail SMTP server and Send Email gmail
+# context = ssl.create_default_context()
+# with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
+#    server.login(email_from, password)
+#    server.sendmail(email_from, email_to, email_string)
+
+# Connect to the SMTP server and Send Email 
+# context = ssl.create_default_context()
+# with smtplib.SMTP_SSL("smtp.office365.com", 587, context=context) as server:
+#    server.login(email_from, password)
+#    server.sendmail(email_from, email_to, email_string)
+
+
+# Connect to the SMTP server and Send Email amazon aws
+server = smtplib.SMTP("email-smtp.us-east-1.amazonaws.com",587)
+server.starttls()
+server.login("usuario","contraseña")
+server.sendmail(email_message['From'], email_to, email_string())
+server.quit()
