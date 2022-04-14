@@ -17,18 +17,25 @@
 # Import required python libraries
 
 import os
-import time
 import datetime
 import pipes
+import logging
+import re
+import json
+import time
+import email.message
 
 # Import modules
 import smtplib
 import ssl
+
 # email.mime subclasses
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+
 # Add new subclass for adding attachments
 from email.mime.application import MIMEApplication
+
 # The pandas library is only for generating the current date, which is not necessary for sending emails
 import pandas as pd
 
